@@ -58,7 +58,7 @@
       <div class="card shadow my-3" *ngFor="let item of usuarios; let i=index" style="border-left: 7px solid; border-color: brown;"
       [ngStyle]="{'border-color': item.estado.id=='1'?'green':'red'}">
         <div class="card-body p-2">
-        <div class="d-flex justify-content-between descripcion" style="font-size: 16px;">
+        <div class="d-flex justify-content-between descripción" style="font-size: 16px;">
           <span >{{item.nombres+' '+ item.apellidos}}</span>
           <span >{{item.tipoDocumento.abr+'. '+item.nroDocumento}}</span>
         </div>
