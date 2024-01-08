@@ -1,0 +1,18 @@
+
+    <nav mat-tab-nav-bar >
+      <a mat-tab-link
+      *ngFor="let link of menuAdmin"
+      [routerLink]="link.path"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+     {{link.name}}
+    </a>
+    </nav>
+    <div class="container-fluid" >
+
+      <router-outlet></router-outlet>
+    </div>
+
+
+
+

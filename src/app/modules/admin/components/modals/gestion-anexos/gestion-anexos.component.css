@@ -1,0 +1,13 @@
+.placa{
+  border-radius: 5px;
+    background: yellow;
+    border: 3px solid black;
+    padding: 1px;
+}
+.placa-mascota{
+  border-radius: 5px;
+  background: #459adf;
+  border: 3px solid #555454;
+  padding: 1px;
+  color: white;
+}

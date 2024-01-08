@@ -1,0 +1,131 @@
+
+ <h2 mat-dialog-title>{{data?'Editando información del usuario: '+ data.nombres+'  '+data.apellidos +' '+ data.detalleApartamento.Torre.Descripcion+' Apto '+data.detalleApartamento.NroApartamento:'Creación de usuario'}}</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form">
+  <!--  <div class="row">
+    <div class="col-3">
+      <label for="inputEmail4" class="p-1">Nombres</label>
+      <input nz-input placeholder="Digite numero" nzSize="small" formControlName="nombres"/>
+    </div>
+    <div class="col-3">
+      <label for="inputEmail4" class="p-1">Apellidos</label>
+      <input nz-input placeholder="Digite numero" nzSize="small" formControlName="apellidos"/>
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1">Tipo documento</label>
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idTipoDocumento">
+        <nz-option *ngFor="let tipodoc of tiposDocumentos" [nzLabel]="tipodoc.descripcion" [nzValue]="tipodoc.id"></nz-option>
+      </nz-select>
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1"># Documento</label>
+      <input nz-input placeholder="Digite numero" nzSize="small" formControlName="nroDocumento"/>
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1">Tipo usuario</label>
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idTipoUsuario">
+        <nz-option *ngFor="let tipousu of tipoUsuario" [nzLabel]="tipousu.descripcion" [nzValue]="tipousu.id"></nz-option>
+      </nz-select>
+    </div>
+   </div>
+   <div class="row my-3">
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1">Correo</label>
+      <input nz-input  placeholder="Digite correo" nzSize="small" formControlName="email"/>
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1">#Telefonos</label>
+      <input nz-input  placeholder="Digite telefono 1" nzSize="small" formControlName="telefono1"/>
+    </div>
+    <div class="col-2 align-self-end">
+      <input nz-input  placeholder="Digite telefono 2" nzSize="small" formControlName="telefono2"/>
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1"># Celulares</label>
+      <input nz-input  placeholder="Digite correo" nzSize="small" formControlName="celular1"/>
+    </div><div class="col-2 align-self-end">
+      <input nz-input  placeholder="Digite correo" nzSize="small" formControlName="celular2"/>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1">Torre</label>
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idTorre"
+      (ngModelChange)="filtrarApartamentosPorTorre($event)">
+        <nz-option *ngFor="let torre of torres" [nzLabel]="torre.Descripcion" [nzValue]="torre.ID"></nz-option>
+      </nz-select>
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1">Apartamento</label>
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idApartamento">
+        <nz-option *ngFor="let apto of apartamentosFiltrados" [nzLabel]="apto.NroApartamento" [nzValue]="apto.ID"></nz-option>
+      </nz-select>
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="p-1">Estado usuario</label>
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idEstado">
+        <nz-option *ngFor="let estado of estadoUsuario" [nzLabel]="estado.descripcion" [nzValue]="estado.id"></nz-option>
+      </nz-select>
+    </div>
+   </div> -->
+
+
+   <nz-descriptions [nzTitle]="'Información'" nzBordered nzSize="small"  [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
+    <nz-descriptions-item nzTitle="Nombres" > <input nz-input placeholder="Digite numero" nzSize="small" formControlName="nombres"/></nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Apellidos" ><input nz-input placeholder="Digite numero" nzSize="small" formControlName="apellidos"/></nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Tipo Documento" >
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idTipoDocumento">
+      <nz-option *ngFor="let tipodoc of tiposDocumentos" [nzLabel]="tipodoc.descripcion" [nzValue]="tipodoc.id"></nz-option>
+    </nz-select>
+  </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="# Documento" >
+      <input nz-input placeholder="Digite numero" nzSize="small" formControlName="nroDocumento"/>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Tipo usuario" >
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idTipoUsuario">
+        <nz-option *ngFor="let tipousu of tipoUsuario" [nzLabel]="tipousu.descripcion" [nzValue]="tipousu.id"></nz-option>
+      </nz-select>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Correo" [nzSpan]="2">
+
+      <input nz-input placeholder="Digite correo" nzSize="small" formControlName="email"/>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Estado usuario" >
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idEstado">
+        <nz-option *ngFor="let estado of estadoUsuario" [nzLabel]="estado.descripcion" [nzValue]="estado.id"></nz-option>
+      </nz-select>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Telefono 1" [nzSpan]="1" >
+      <input nz-input placeholder="Digite telefono 1" nzSize="small" formControlName="telefono1"/>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Telefono 2" [nzSpan]="1" >
+      <input nz-input placeholder="Digite telefono 2" nzSize="small" formControlName="telefono2"/>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Celular 1" [nzSpan]="1">
+      <input nz-input placeholder="Digite celular" nzSize="small" formControlName="celular1"/>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Celular 2" [nzSpan]="1">
+      <input nz-input placeholder="Digite celular" nzSize="small" formControlName="celular2"/>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Torre" >
+      <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idTorre"
+      (ngModelChange)="filtrarApartamentosPorTorre($event)">
+        <nz-option *ngFor="let torre of torres" [nzLabel]="torre.Descripcion" [nzValue]="torre.ID"></nz-option>
+      </nz-select>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Apartamento" >
+      <nz-select class="w-50" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" formControlName="idApartamento">
+        <nz-option *ngFor="let apto of apartamentosFiltrados" [nzLabel]="apto.NroApartamento" [nzValue]="apto.ID"></nz-option>
+      </nz-select>
+    </nz-descriptions-item>
+
+  </nz-descriptions>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button nz-button nzType="default" class="mx-2" (click)="cancelar()">Cancelar</button>
+  <button *ngIf="data"  nz-button nzType="primary" class="app-btn-success" (click)="editarUsuario()">Editar</button>
+  <button *ngIf="!data"  nz-button nzType="primary" (click)="crearUsuario()">Crear</button>
+
+</mat-dialog-actions>
+

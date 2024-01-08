@@ -1,0 +1,38 @@
+
+<nz-radio-group [(ngModel)]="areaComunId" nzButtonStyle="solid">
+  <label  nz-radio-button *ngFor="let item of areasComunes" [nzValue]="item.id" >{{item.descripcion}}</label>
+</nz-radio-group>
+<!-- LAS CARD DE RESERVAS VAN POR COLORES EN LA FECHA widget-49-date-success widget-49-date- widget-49-date-warning  -->
+<div class="container p-0 mx-0 mt-2">
+  <h5>Listado de reservas</h5>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card card-margin shadow" style="background: aliceblue;">
+            <div class="card-header no-border">
+                <h5 class="card-title">Apartamento 101 Torre 12</h5>
+            </div>
+            <div class="card-body pt-0">
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-primary">
+                            <span class="widget-49-date-day">09</span>
+                            <span class="widget-49-date-month">apr</span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">SALON SOCIAL</span>
+                            <span class="widget-49-pro-title">Miguel angel zambrano herrera</span>
+                            <span class="widget-49-meeting-time">9 de abril del 2023</span>
+                            <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                        </div>
+                    </div>
+                    <div class="widget-49-meeting-action">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</div>

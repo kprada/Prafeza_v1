@@ -1,0 +1,165 @@
+<h2 mat-dialog-title>{{data?'Editando información del usuario: '+ data.nombres+'  '+data.apellidos +' '+ data.detalleApartamento.Torre.Descripcion+' Apto '+data.detalleApartamento.NroApartamento:'Creación de usuario'}}</h2>
+<mat-dialog-content >
+<nz-tabset>
+  <nz-tab nzTitle="Vehiculos">
+    <nz-collapse>
+      <nz-collapse-panel
+        *ngFor="let panel of panels"
+        [nzHeader]="'Registrar vehiculo'"
+        [nzActive]="activePanelVehiculo"
+        [nzDisabled]="false"
+      >
+      <form [formGroup]="formVehiculo">
+
+         <nz-descriptions [nzTitle]="'Información '" nzBordered nzSize="small"  [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
+          <nz-descriptions-item nzTitle="Placa" > <input nz-input placeholder="Digite placa" nzSize="small" formControlName="placa"/></nz-descriptions-item>
+          <nz-descriptions-item nzTitle="Marca" ><input nz-input placeholder="Digite marca" nzSize="small" formControlName="marca"/></nz-descriptions-item>
+          <nz-descriptions-item nzTitle="Modelo" >
+            <input nz-input placeholder="Digite modelo" nzSize="small" formControlName="modelo"/>
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="Color" [nzSpan]="2" >
+            <input nz-input placeholder="Digite color" nzSize="small" formControlName="color"/>
+          </nz-descriptions-item>
+          <nz-descriptions-item nzTitle="Estado" [nzSpan]="2" >
+            <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione estado" nzSize="small" formControlName="estadoId">
+              <nz-option *ngFor="let est of estadoVehiculo" [nzLabel]="est.descripcion" [nzValue]="est.id"></nz-option>
+            </nz-select>
+          </nz-descriptions-item>
+        </nz-descriptions>
+        </form>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <div class="container p-0 mx-0 my-3">
+      <div class="row">
+        <div class="col-2" *ngFor="let item of data.detalleVehiculos">
+          <div class="card cursor-pointer " >
+            <div class="card-body text-center">
+              <h5 class="card-title" style="font-size: 15px;">{{(item.marca +' '+item.modelo )| uppercase}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted" style="font-size: 13px;">Fecha registro{{item.fechaHoraRegistro | date: 'short'}}</h6>
+              <img src="assets/img/coche.png" alt="" style="width: 70px;" >
+              <h5 class="card-title placa">{{item.placa}}</h5>
+              <nz-tag [nzColor]="'#f50'">rojo</nz-tag>
+              <nz-tag (click)="setFormVehiculo(item)"><i nz-icon nzType="edit" nzTheme="outline"></i></nz-tag>
+              <nz-tag ><i nz-icon nzType="delete" nzTheme="outline"></i></nz-tag>
+           <!--    <i nz-icon nzType="edit" nzTheme="outline"></i>
+              <i nz-icon nzType="delete" nzTheme="outline"></i> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nz-tab>
+  <nz-tab nzTitle="Mascotas">
+    <nz-collapse>
+    <nz-collapse-panel
+      [nzHeader]="'Registrar mascota'"
+      [nzActive]="activePanelMascota"
+      [nzDisabled]="false"
+    >
+    <form [formGroup]="formMascota">
+
+      <nz-descriptions [nzTitle]="'Información '" nzBordered nzSize="small"  [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
+       <nz-descriptions-item nzTitle="Nombre" > <input nz-input placeholder="Digite nombre " nzSize="small" formControlName="nombre"/></nz-descriptions-item>
+       <nz-descriptions-item nzTitle="Raza" ><input nz-input placeholder="Digite raza" nzSize="small" formControlName="raza"/></nz-descriptions-item>
+       <nz-descriptions-item nzTitle="Fecha vacuna" >
+         <nz-date-picker class="w-100" formControlName="fechaVacuna" nzSize="small" ></nz-date-picker>
+       </nz-descriptions-item>
+       <nz-descriptions-item nzTitle="Color" [nzSpan]="2" >
+         <input nz-input placeholder="Digite color" nzSize="small" formControlName="color"/>
+       </nz-descriptions-item>
+       <nz-descriptions-item nzTitle="Estado" [nzSpan]="2" >
+         <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione estado" nzSize="small" formControlName="estadoId">
+           <nz-option *ngFor="let est of estadoMascota" [nzLabel]="est.descripcion" [nzValue]="est.id"></nz-option>
+         </nz-select>
+       </nz-descriptions-item>
+     </nz-descriptions>
+     </form>
+    </nz-collapse-panel>
+  </nz-collapse>
+  <div class="container p-0 mx-0 my-3">
+    <div class="row">
+      <div class="col-2" *ngFor="let item of data.detalleMascotas">
+        <div class="card shadow cursor-pointer "  >
+          <div class="card-body text-center">
+            <h5 class="card-title" style="font-size: 15px;">{{(item.raza)| uppercase}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted" style="font-size: 13px;">Fecha registro{{item.fechaHoraRegistro| date: 'short'}}</h6>
+            <img src="assets/img/perro.png" alt="" style="width: 70px;" >
+            <h5 class="card-title placa-mascota">{{item.nombre | uppercase}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted" style="font-size: 13px;">Fecha vacuna{{item.fechaVacuna| date: 'short'}}</h6>
+
+            <nz-tag [nzColor]="'#f50'">rojo</nz-tag>
+            <nz-tag (click)="setFormMascota(item)"><i nz-icon nzType="edit" nzTheme="outline"></i></nz-tag>
+            <nz-tag ><i nz-icon nzType="delete" nzTheme="outline"></i></nz-tag>
+      <!--       <i nz-icon nzType="edit" nzTheme="outline"></i>
+              <i nz-icon nzType="delete" nzTheme="outline"></i> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nz-tab>
+  <nz-tab nzTitle="Familiares">
+    <nz-collapse>
+      <nz-collapse-panel
+        [nzHeader]="'Registrar familiar'"
+        [nzActive]="activePanelFamiliar"
+        [nzDisabled]="false"
+      >
+      <form [formGroup]="formFamiliar">
+
+        <nz-descriptions [nzTitle]="'Información '" nzBordered nzSize="small"  [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
+         <nz-descriptions-item nzTitle="Nombres" > <input nz-input placeholder="Digite nombres" nzSize="small" formControlName="nombres"/></nz-descriptions-item>
+         <nz-descriptions-item nzTitle="Apellidos" ><input nz-input placeholder="Digite apellidos" nzSize="small" formControlName="apellidos"/></nz-descriptions-item>
+         <nz-descriptions-item nzTitle="Tipo de documento" [nzSpan]="2" >
+          <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione tipo documento" nzSize="small" formControlName="tipoDocumentoId">
+            <nz-option *ngFor="let tdoc of tipoDocumento" [nzLabel]="tdoc.descripcion" [nzValue]="tdoc.id"></nz-option>
+          </nz-select>
+        </nz-descriptions-item>
+         <nz-descriptions-item nzTitle="Nro Documento" [nzSpan]="2">
+           <input nz-input placeholder="Digite documento" nzSize="small" formControlName="nroDocumento"/>
+         </nz-descriptions-item>
+         <nz-descriptions-item nzTitle="Parentezco" [nzSpan]="2" >
+           <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione parentezco" nzSize="small" formControlName="parentescoId">
+             <nz-option *ngFor="let tpa of tiposParentezco" [nzLabel]="tpa.descripcion" [nzValue]="tpa.id"></nz-option>
+           </nz-select>
+         </nz-descriptions-item>
+       </nz-descriptions>
+       </form>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <div class="container p-0 mx-0 my-3">
+
+      <div class="row">
+        <div class="col-3" *ngFor="let item of data.detalleFamiliares">
+          <div class="card mb-3 shadow" >
+            <div class="row no-gutters">
+              <div class="col-md-2 text-center align-self-center">
+                <img src="assets/img/desconocido.png" alt="..." style="width: 60px;"  >
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title" style="font-size: 12px;">{{(item.nombres+' '+ item.apellidos)|uppercase}}</h5>
+                  <p class="card-text mb-0">{{item.tipoDocumento.abr+'. '+item.nroDocumento}}</p>
+                  <nz-tag [nzColor]="'#87d068'">{{item.parentezco.descripcion}}</nz-tag>
+                  <nz-tag (click)="setFormFamiliar(item)"><i nz-icon nzType="edit" nzTheme="outline"></i></nz-tag>
+                  <nz-tag ><i nz-icon nzType="delete" nzTheme="outline"></i></nz-tag>
+                  <p class="card-text mb-0"><small class="text-muted">Registrado {{item.fechaHoraRegistro| date : 'short'}}</small></p>
+            <!--       <i nz-icon nzType="edit" nzTheme="outline" class="mx-1"></i>
+              <i nz-icon nzType="delete" nzTheme="outline"></i> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nz-tab>
+</nz-tabset>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button nz-button nzType="default" class="mx-2" mat-dialog-close>cerrar</button>
+
+</mat-dialog-actions>

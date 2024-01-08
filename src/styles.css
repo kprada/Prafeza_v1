@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+.cursor-pointer {
+  cursor: pointer;
+}
+.app-btn-success {
+  background: #28a745 !important;
+  border: 1px solid #28a745 !important;
+  color: white !important;
+}
+
+.app-btn-success:hover {
+  background: #32b851 !important;
+  border: 1px solid #32b851 !important;
+}
+
+.app-btn-danger {
+  background: #dc3545 !important;
+  border: 1px solid #dc3545 !important;
+  color: white !important;
+}
+
+.app-btn-danger:hover {
+  background: #9b2934 !important;
+  border: 1px solid #9b2934 !important;
+}
+
+.app-btn-warning {
+  background: #ffc107 !important;
+  border: 1px solid #ffc107 !important;
+  color: white !important;
+}
+
+.app-btn-warning:hover {
+  background: #ffc928 !important;
+  border: 1px solid #ffc928 !important;
+}
+.bg.white {
+  background: white;
+}

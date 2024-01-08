@@ -1,0 +1,89 @@
+<nz-descriptions
+nzTitle="Descripcion de torres" nzSize="small"
+nzBordered
+[nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }"
+>
+<nz-descriptions-item nzTitle="Cantidad de torres">{{torres.length}}</nz-descriptions-item>
+<nz-descriptions-item nzTitle="Cantidad de apartamentos">{{apartamentos.length}}</nz-descriptions-item>
+
+</nz-descriptions>
+
+<div class="container text-center m-0 p-0">
+  <div class=" row my-2">
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 ">
+      <h6>Listado de torres</h6>
+      <div class="row mb-2">
+        <label class="col-sm-1">Filtrar:</label>
+        <div class="col-sm-8">
+          <nz-select class="w-100" nzShowSearch nzAllowClear nzPlaceHolder="Seleccione torre" nzSize="small" [(ngModel)]="torreSeleccionada">
+            <nz-option *ngFor="let torre of torres" [nzLabel]="torre.Descripcion" [nzValue]="torre.ID"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+     <div>
+
+        <nz-table #basicTable [nzData]="detallesTorres" nzSize="small" nzBordered>
+          <thead>
+            <tr>
+              <th nzAlign="center"  nzWidth="5%">#</th>
+              <th nzAlign="left">Descripcion</th>
+              <th nzAlign="left"  nzWidth="15%">Estado</th>
+              <th nzAlign="center"  nzWidth="15%"># Aptos</th>
+              <th nzAlign="center" nzWidth="5%">Ver</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data; let i = index">
+              <td nzAlign="center">{{i+1}}</td>
+              <td nzAlign="center">{{data.Descripcion}}</td>
+              <td nzAlign="center">{{data.Estado.Descripcion}}</td>
+              <td nzAlign="center">{{data.Apartamentos.length}}</td>
+              <td nzAlign="center"><i nz-icon nzType="eye" nzTheme="outline" style="cursor:pointer;" (click)="verApto(data)"></i></td>
+            </tr>
+          </tbody>
+        </nz-table>
+     </div>
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6  mb-5" >
+      <h6>Listado de apartamentos  <span class="ml-2" *ngIf="detalleTorre">{{detalleTorre.Descripcion}}</span> </h6>
+
+      <span *ngIf="detalleTorre==null" > Seleccione apartamento </span>
+
+      <div *ngIf="detalleTorre">
+        <div class="row mb-2 justify-content-center">
+          <div class="col-sm-8">
+            <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="small" >
+              <input type="text" nz-input placeholder="Digita valor de busqueda" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+              <i nz-icon nzType="search"></i>
+            </ng-template>
+          </div>
+        </div>
+        <nz-table #basicTable [nzData]="detalleTorre.Apartamentos" nzSize="small" nzBordered>
+          <thead>
+            <tr>
+              <th nzAlign="center"  nzWidth="5%">#</th>
+              <th nzAlign="left">Descripcion</th>
+              <th nzAlign="center"  nzWidth="15%"># Torre</th>
+              <th nzAlign="center" nzWidth="5%">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data; let i = index">
+              <td nzAlign="center">{{i+1}}</td>
+              <td nzAlign="center">{{data.NroApartamento}}</td>
+              <td nzAlign="center">{{data.TorreId}}</td>
+              <td nzAlign="center">{{data.Estado.Descripcion}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+     </div>
+    </div>
+
+
+
+      </div>
+</div>

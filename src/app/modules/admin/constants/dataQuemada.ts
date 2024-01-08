@@ -1,0 +1,717 @@
+import { IDetalleUsuario, IEstadoMascota, IEstadoUsuario, IEstadoVehiculo, ITipoDocumento, ITipoParentezco, ITipoUsuario, IUsuario } from "../interfaces/gestioUsuario";
+import { IApartamento, ITorre } from "../interfaces/gestionEstructura";
+import { IAreaComun } from "../interfaces/gestionReservas";
+
+export const torres: ITorre[] =[
+    {
+        ID:'1',
+        Descripcion:'Torre 1',
+        Estado:{
+          ID:'1',
+          Descripcion:'Activo'
+        }
+    },
+    {
+      ID:'2',
+      Descripcion:'Torre 2',
+      Estado:{
+        ID:'1',
+        Descripcion:'Activo'
+      }
+  },
+  {
+    ID:'3',
+    Descripcion:'Torre 3',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+},
+{
+  ID:'4',
+  Descripcion:'Torre 4',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'5',
+  Descripcion:'Torre 5',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'6',
+  Descripcion:'Torre 6',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'7',
+  Descripcion:'Torre 7',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'8',
+  Descripcion:'Torre 8',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'9',
+  Descripcion:'Torre 9',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'10',
+  Descripcion:'Torre 10',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'11',
+  Descripcion:'Torre 11',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'12',
+  Descripcion:'Torre 12',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'13',
+  Descripcion:'Torre 13',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'14',
+  Descripcion:'Torre 14',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+{
+  ID:'15',
+  Descripcion:'Torre 15',
+  Estado:{
+    ID:'1',
+    Descripcion:'Activo'
+  }
+},
+]
+export const apartamentos:IApartamento[]=[
+  {
+    ID:'1',
+    TorreId:'1',
+    NroApartamento:'101',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'2',
+    TorreId:'1',
+    NroApartamento:'102',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'3',
+    TorreId:'1',
+    NroApartamento:'103',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'4',
+    TorreId:'1',
+    NroApartamento:'104',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'5',
+    TorreId:'1',
+    NroApartamento:'201',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'6',
+    TorreId:'1',
+    NroApartamento:'202',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'7',
+    TorreId:'1',
+    NroApartamento:'203',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'8',
+    TorreId:'1',
+    NroApartamento:'204',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'9',
+    TorreId:'1',
+    NroApartamento:'301',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'10',
+    TorreId:'1',
+    NroApartamento:'302',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'11',
+    TorreId:'1',
+    NroApartamento:'303',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'12',
+    TorreId:'1',
+    NroApartamento:'304',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'13',
+    TorreId:'1',
+    NroApartamento:'401',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'14',
+    TorreId:'1',
+    NroApartamento:'402',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'15',
+    TorreId:'1',
+    NroApartamento:'403',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'16',
+    TorreId:'1',
+    NroApartamento:'404',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+  {
+    ID:'17',
+    TorreId:'1',
+    NroApartamento:'501',
+    Estado:{
+      ID:'1',
+      Descripcion:'Activo'
+    }
+  },
+
+
+]
+export const usuarios:IDetalleUsuario[]=[
+  {
+    id:'1',
+    tipoDocumento:{
+      id:'1',
+      descripcion:'Cedula',
+      abr:'CC'
+    },
+    nroDocumento:'123456789',
+    nombres:'Juan',
+    apellidos:'Perez',
+    tipoUsuario:{
+      id:'1',
+      descripcion:'Propietario'
+    },
+    email:'kprada398@gmail.com',
+    telefono1:'1234567',
+    telefono2:'1234567',
+    celular1:'1234567',
+    celular2:'1234567',
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    detalleApartamento:{
+      ID:'1',
+      TorreId:'1',
+      NroApartamento:'101',
+      Estado:{
+        ID:'1',
+        Descripcion:'Activo'
+      },
+      Torre:{
+        ID:'1',
+        Descripcion:'Torre 1',
+        Estado:{
+          ID:'1',
+          Descripcion:'Activo'
+        }
+      }
+    },
+    detalleVehiculos:[{
+      id:'1',
+      placa:'ABC123',
+      marca:'Mazda',
+      modelo:'2020',
+      color:'Rojo',
+      estado:{
+        id:'1',
+        descripcion:'Activo'
+      },
+      fechaHoraRegistro:'2021-01-01T00:00:00',
+      apartamentoId:'1',}],
+    detalleMascotas:[{
+      id:'1',
+      nombre:'Firulais',
+      raza:'Pitbull',
+      color:'Blanco',
+        fechaVacuna:'2021-01-01T00:00:00',
+      estado:{
+        id:'1',
+        descripcion:'Activo'
+      },
+      fechaHoraRegistro:'2021-01-01T00:00:00',
+      apartamentoId:'1',}],
+      detalleFamiliares:[
+        {
+          id:'1',
+          tipoDocumento:{
+            id:'1',
+            descripcion:'Cedula',
+            abr:'CC'
+          },
+          nroDocumento:'123456789',
+          nombres:'Milagros Andrea',
+          apellidos:'Zambrano ',
+          parentezco:{
+            id:'1',
+            descripcion:'Hijo(a)'
+          },
+          apartamentoId:'1',
+          fechaHoraRegistro:'2021-01-01T00:00:00',
+          estado:{
+            id:'1',
+            descripcion:'Activo'
+          },
+        },
+        {
+          id:'2',
+          tipoDocumento:{
+            id:'1',
+            descripcion:'Cedula',
+            abr:'CC'
+          },
+          nroDocumento:'123456789',
+          nombres:'Jean Angel',
+          apellidos:'Prada ',
+          parentezco:{
+            id:'1',
+            descripcion:'Hijo(a)'
+          },
+          apartamentoId:'1',
+          fechaHoraRegistro:'2021-01-01T00:00:00',
+          estado:{
+            id:'1',
+            descripcion:'Activo'
+          },
+        }
+      ]
+
+  },
+  {
+    id:'2',
+    tipoDocumento:{
+      id:'1',
+      descripcion:'Cedula',
+      abr:'CC'
+    },
+    nroDocumento:'1234567ddd89',
+    nombres:'Ricardo',
+    apellidos:'Ferrer',
+    tipoUsuario:{
+      id:'1',
+      descripcion:'Propietario'
+    },
+    email:'rferrer@gmail.com',
+    telefono1:'123456789',
+    telefono2:'123456789',
+    celular1:'123456789',
+    celular2:'123456789',
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    detalleApartamento:{
+      ID:'2',
+      TorreId:'1',
+      NroApartamento:'201',
+      Estado:{
+        ID:'1',
+        Descripcion:'Activo'
+      },
+      Torre:{
+        ID:'1',
+        Descripcion:'Torre 1',
+        Estado:{
+          ID:'1',
+          Descripcion:'Activo'
+        }
+      }
+    },
+    detalleVehiculos:[{
+      id:'1',
+      placa:'ABC345',
+      marca:'Kia',
+      modelo:'2020',
+      color:'Blanco',
+      estado:{
+        id:'1',
+        descripcion:'Activo'
+      },
+      fechaHoraRegistro:'2021-01-01T00:00:00',
+      apartamentoId:'2',}],
+    detalleMascotas:[{
+      id:'1',
+      nombre:'Milo',
+      raza:'Chigugua',
+      color:'beige',
+        fechaVacuna:'2021-01-01T00:00:00',
+      estado:{
+        id:'1',
+        descripcion:'Activo'
+      },
+      fechaHoraRegistro:'2021-01-01T00:00:00',
+      apartamentoId:'2',}],
+      detalleFamiliares:[{
+        id:'1',
+        tipoDocumento:{
+          id:'1',
+          descripcion:'Cedula',
+          abr:'CC'
+        },
+        nroDocumento:'123456789',
+        nombres:'Miguel Angel',
+        apellidos:'Zambrano ',
+        parentezco:{
+          id:'1',
+          descripcion:'Hijo(a)'
+        },
+        apartamentoId:'2',
+        fechaHoraRegistro:'2021-01-01T00:00:00',
+        estado:{
+          id:'1',
+          descripcion:'Activo'
+        },
+      },
+      {
+        id:'2',
+        tipoDocumento:{
+          id:'1',
+          descripcion:'Cedula',
+          abr:'CC'
+        },
+        nroDocumento:'123456789',
+        nombres:'Gener Angel',
+        apellidos:'Zambrano ',
+        parentezco:{
+          id:'1',
+          descripcion:'Hijo(a)'
+        },
+        apartamentoId:'2',
+        fechaHoraRegistro:'2021-01-01T00:00:00',
+        estado:{
+          id:'1',
+          descripcion:'Activo'
+        },
+      }
+    ]
+
+  },
+
+];
+export const tiposDocumento:ITipoDocumento[]=[
+  {
+    id:'1',
+    descripcion:'Cedula',
+    abr:'CC'
+  },
+  {
+    id:'2',
+    descripcion:'Pasaporte',
+    abr:'PAS'
+  },
+  {
+    id:'3',
+    descripcion:'Cedula de extranjeria',
+    abr:'CE'
+  },
+  {
+    id:'4',
+    descripcion:'Tarjeta de identidad',
+    abr:'TI'
+  },
+  {
+    id:'5',
+    descripcion:'Registro civil',
+    abr:'RC'
+  },
+  {
+    id:'6',
+    descripcion:'NIT',
+    abr:'NIT'
+  },
+  {
+    id:'7',
+    descripcion:'RUT',
+    abr:'RUT'
+  }
+];
+export const tipoUsuario:ITipoUsuario[]=[
+  {
+    id:'1',
+    descripcion:'Propietario'
+  },
+  {
+    id:'2',
+    descripcion:'Inquilino'
+  },
+  {
+    id:'3',
+    descripcion:'Invitado'
+  }
+];
+export const estadoUsuario:IEstadoUsuario[]=[
+  {
+    id:'1',
+    descripcion:'Activo'
+  },
+  {
+    id:'2',
+    descripcion:'Inactivo'
+  }
+];
+export const areasComunes:IAreaComun[]=[
+  {
+    id:'1',
+    descripcion:'Salon social',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+  {
+    id:'2',
+    descripcion:'Gimnasio',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+  {
+    id:'3',
+    descripcion:'Piscina',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+  {
+    id:'4',
+    descripcion:'Zona BBQ',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+  {
+    id:'5',
+    descripcion:'Parque infantil',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+  {
+    id:'6',
+    descripcion:'Cancha de futbol',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+  {
+    id:'7',
+    descripcion:'Cancha de tenis',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+  {
+    id:'8',
+    descripcion:'Cancha de baloncesto',
+    estado:{
+      id:'1',
+      descripcion:'Activo'
+    },
+    fechaHoraRegistro:'2021-01-01T00:00:00',
+    capacidad:100
+  },
+
+]
+export const tiposParentezco:ITipoParentezco[]=[
+  {
+    id:'1',
+    descripcion:'Hijo(a)'
+  },
+  {
+    id:'2',
+    descripcion:'Padre'
+  },
+  {
+    id:'3',
+    descripcion:'Madre'
+  },
+  {
+    id:'4',
+    descripcion:'Hermano(a)'
+  },
+  {
+    id:'5',
+    descripcion:'Tio(a)'
+  },
+  {
+    id:'6',
+    descripcion:'Abuelo(a)'
+  },
+  {
+    id:'7',
+    descripcion:'Primo(a)'
+  },
+  {
+    id:'8',
+    descripcion:'Sobrino(a)'
+  },
+  {
+    id:'9',
+    descripcion:'Nieto(a)'
+  },
+  {
+    id:'10',
+    descripcion:'Esposo(a)'
+  },
+  {
+    id:'11',
+    descripcion:'Otro'
+  }
+]
+export const estadoVehiculo:IEstadoVehiculo[]=[
+  {
+    id:'1',
+    descripcion:'Activo'
+  },
+  {
+    id:'2',
+    descripcion:'Inactivo'
+  }
+]
+export const estadoMascota:IEstadoMascota[]=[
+  {
+    id:'1',
+    descripcion:'Activo'
+  },
+  {
+    id:'2',
+    descripcion:'Inactivo'
+  }
+]

@@ -1,0 +1,92 @@
+<div class="container m-0 p-0">
+
+<div class="row my-3">
+  <div class="col-12">
+    <div class="d-flex justify-content-between">
+      <h5>Usuarios</h5>
+      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="openDialogCrearUsuario(null)">
+        <img src="assets/img/userplus.png" alt="">
+       </button>
+    </div>
+
+  </div>
+  <div class="col-12 my-2">
+    <nz-input-group [nzSuffix]="suffixIconSearch" nzSize="large" >
+      <input type="text" nz-input placeholder="Digita valor de busqueda" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <i nz-icon nzType="search"></i>
+    </ng-template>
+  </div>
+  <div class="col-12">
+
+    <nz-table #basicTable [nzData]="usuarios" nzSize="small" nzBordered *ngIf="!mobileQuery.matches">
+      <thead>
+        <tr>
+          <th nzAlign="center"  >#</th>
+          <th nzAlign="left"  nzWidth="20%">Nombres</th>
+          <th nzAlign="center"  >Tipo</th>
+          <th nzAlign="center"  >Apto(s)</th>
+          <th nzAlign="center"  >Telefonos</th>
+          <th nzAlign="center"  >Celular</th>
+          <th nzAlign="center"  >Fecha Registro</th>
+          <th nzAlign="center">Documento</th>
+          <th nzAlign="center">Anexos</th>
+          <th nzAlign="center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data; let i = index">
+          <td nzAlign="center">{{i+1}}</td>
+          <td nzAlign="left">{{data.nombres +' '+ data.apellidos}}</td>
+          <td nzAlign="center">{{data.tipoUsuario.descripcion}}</td>
+          <td nzAlign="center">{{data.detalleApartamento.Torre.Descripcion+' Apto '+data.detalleApartamento.NroApartamento}}</td>
+          <td nzAlign="left">{{data.telefono1 +' '+ data.telefono2}}</td>
+          <td nzAlign="left">{{data.celular1+' '+ data.celular2}}</td>
+          <td nzAlign="center">{{data.fechaHoraRegistro | date :'medium'}}</td>
+          <td nzAlign="center">{{data.tipoDocumento.abr+' '+ data.nroDocumento}}</td>
+          <td nzAlign="center">
+            <i nz-icon nzType="search" nzTheme="outline" class="cursor-pointer escala" (click)="openDialogAnexos(data)"></i>
+          </td>
+          <td nzAlign="center">
+            <i nz-icon nzType="edit" nzTheme="outline" class="cursor-pointer escala" (click)="openDialogCrearUsuario(data)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <div class="contenedor" *ngIf="mobileQuery.matches">
+      <div class="card shadow my-3" *ngFor="let item of usuarios; let i=index" style="border-left: 7px solid; border-color: brown;"
+      [ngStyle]="{'border-color': item.estado.id=='1'?'green':'red'}">
+        <div class="card-body p-2">
+        <div class="d-flex justify-content-between descripcion" style="font-size: 16px;">
+          <span >{{item.nombres+' '+ item.apellidos}}</span>
+          <span >{{item.tipoDocumento.abr+'. '+item.nroDocumento}}</span>
+        </div>
+        <div class="d-flex justify-content-start descripcion">
+          <span >Telefonos: </span>
+          <span class="mx-3">{{item.telefono1 +'    '+ item.telefono2}}</span>
+        </div>
+        <div class="d-flex justify-content-start descripcion">
+          <span>Celulares: </span>
+          <span class="mx-3">{{item.celular1 +'    '+ item.celular2}}</span>
+        </div>
+        <div class="d-flex justify-content-between " >
+          <nz-tag style="font-size: 16px;" [nzColor]="'#87d068'">{{item.tipoUsuario.descripcion}}- {{item.detalleApartamento.Torre.Descripcion+' Apto '+item.detalleApartamento.NroApartamento}}</nz-tag>
+
+          <div class="d-flex justify-content-end">
+            <i nz-icon nzType="search" nzTheme="outline" class="cursor-pointer escala" (click)="openDialogAnexos(item)"></i>
+            <i nz-icon nzType="edit" nzTheme="outline" class="cursor-pointer escala mx-2" (click)="openDialogCrearUsuario(item)"></i>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
+
+

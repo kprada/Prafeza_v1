@@ -1,0 +1,14 @@
+.escala:hover {
+  transform: scale(1.4, 1.4);
+  transition: transform 200ms;
+}
+
+.contenedor {
+  max-height:65vh; /* Establece la altura máxima */
+  overflow-y: auto ;  /* Habilita el desplazamiento vertical si el contenido supera la altura máxima */
+
+}
+.descripcion{
+  font-size: 16px;
+  font-weight: 600;
+}
